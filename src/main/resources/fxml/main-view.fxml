@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MainController" stylesheets="@../styles/application.css">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Buscar:"/>
+        <TextField fx:id="searchField" prefWidth="200" promptText="Escribe para buscar..."/>
+        <Label text="Filtrar por estado:"/>
+        <ComboBox fx:id="filterCombo" prefWidth="150"/>
+        <Button text="Limpiar filtro" onAction="#cargarTareas"/>
+    </HBox>
+    <Label fx:id="lblAviso" style="-fx-text-fill: #d9534f; -fx-font-weight: bold;" visible="false" text=""/>
+
+    <TableView fx:id="taskTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
+            <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+            <TableColumn fx:id="colPrioridad" text="Prioridad" prefWidth="80"/>
+            <TableColumn fx:id="colResponsable" text="Responsable" prefWidth="120"/>
+            <TableColumn fx:id="colFechaLimite" text="Fecha Límite" prefWidth="130"/>
+        </columns>
+    </TableView>
+
+    <VBox spacing="5">
+        <Label text="Detalles de la tarea seleccionada:" style="-fx-font-weight: bold;"/>
+        <TextArea fx:id="detailArea" prefHeight="120" wrapText="true" editable="false"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="addButton" text="Añadir" onAction="#abrirFormularioNuevo"/>
+        <Button fx:id="editButton" text="Editar" onAction="#abrirFormularioEditar" disable="true"/>
+        <Button fx:id="deleteButton" text="Eliminar" onAction="#eliminarTarea" disable="true"/>
+    </HBox>
+
+</VBox>

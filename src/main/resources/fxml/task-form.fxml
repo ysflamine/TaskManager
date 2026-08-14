@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.TaskFormController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Título:"/>
+    <TextField fx:id="tituloField"/>
+
+    <Label text="Descripción:"/>
+    <TextArea fx:id="descripcionArea" prefHeight="80"/>
+
+    <HBox spacing="10">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Estado:"/>
+            <ComboBox fx:id="estadoCombo" prefWidth="150"/>
+        </VBox>
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Prioridad (1-5):"/>
+            <Spinner fx:id="prioridadSpinner" prefWidth="100"/>
+        </VBox>
+    </HBox>
+
+    <Label text="Responsable:"/>
+    <TextField fx:id="responsableField"/>
+
+    <Label text="Fecha límite:"/>
+    <DatePicker fx:id="fechaLimitePicker" prefWidth="200"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="guardarButton" text="Guardar" onAction="#guardarTarea"/>
+        <Button fx:id="cancelarButton" text="Cancelar" onAction="#cancelar"/>
+    </HBox>
+
+</VBox>
